@@ -27,4 +27,9 @@ public class thinkingActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void ClickToFeedAnimal(View view) {
+        Intent intent = new Intent(this, FeedAnimalActivity.class);
+        startActivity(intent);
+    }
 }

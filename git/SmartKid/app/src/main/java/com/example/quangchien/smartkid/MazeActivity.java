@@ -12,7 +12,7 @@ public class MazeActivity extends AppCompatActivity {
     GestureDetector gestureDetector;
     int khoangCach = 50, KC = 40;
     int vanToc = 0;
-    int hangKhi = 3, cotKhi = 0, ngang = 50, doc = 60;
+    int hangKhi = 3, cotKhi = 0, ngang = 35, doc = 45;
     int idMaze[][] = {
             {R.id.maze00, R.id.maze01, R.id.maze02, R.id.maze03, R.id.maze04, R.id.maze05, R.id.maze06, R.id.maze07},
             {R.id.maze10, R.id.maze11, R.id.maze12, R.id.maze13, R.id.maze14, R.id.maze15, R.id.maze16, R.id.maze17},

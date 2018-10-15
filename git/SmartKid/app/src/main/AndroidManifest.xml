@@ -27,8 +27,15 @@
         <activity
             android:name=".MazeActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".ObserverActivity" />
-        <activity android:name=".ApplyActivity"></activity>
+        <activity
+            android:name=".ObserverActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ApplyActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".FeedAnimalActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
