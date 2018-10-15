@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/nenobserver"
+    tools:context=".ObserverActivity">
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/img1"
+        android:layout_width="145dp"
+        android:layout_height="132dp"
+        android:layout_alignTop="@+id/img2"
+        android:layout_marginBottom="145dp"
+        android:layout_marginLeft="145dp"
+        android:src="@drawable/pikachuchay" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/img2"
+        android:layout_width="135dp"
+        android:layout_height="141dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/pikachu"
+        android:onClick="clickToApply"
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/imgPlus"
+        android:layout_width="69dp"
+        android:layout_height="98dp"
+        android:layout_below="@+id/img2"
+        android:layout_marginLeft="216dp"
+        android:src="@drawable/plus"
+
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="106dp"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:layout_marginLeft="245dp"
+        android:autoText="true"
+        android:text="Other"
+        android:textSize="30sp" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/imageView5"
+        android:layout_width="79dp"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="17dp"
+        android:layout_marginBottom="13dp"
+        android:src="@drawable/home" />
+
+</RelativeLayout>
