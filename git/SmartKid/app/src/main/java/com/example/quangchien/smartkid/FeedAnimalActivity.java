@@ -19,7 +19,7 @@ public class FeedAnimalActivity extends AppCompatActivity {
     GestureDetector gestureDetector;
     int khoangCach = 100;
     int vanToc = 100;
-    int flag = 0;
+    int flag = 0, soLan = 0;
     Handler handler = new Handler();
     int thucAnList[] = {R.drawable.feedanimal_banh, R.drawable.feedanimal_banhtroinuoc, R.drawable.feedanimal_banhtn,
             R.drawable.feedanimal_banhtn2, R.drawable.feedanimal_banhngot, R.drawable.feedanimal_banhngot2,
@@ -31,11 +31,11 @@ public class FeedAnimalActivity extends AppCompatActivity {
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 //        getWindow().addFlags(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        View decorView = getWindow().getDecorView();;
+        View decorView = getWindow().getDecorView();
+        ;
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
-
 
 
         setContentView(R.layout.activity_feed_animal);
@@ -58,7 +58,7 @@ public class FeedAnimalActivity extends AppCompatActivity {
             //trái sang phải
             if (e2.getX() - e1.getX() > khoangCach && Math.abs(velocityX) > vanToc) {
                 if (flag >= (thucAnList.length / 2)) {
-                    final ImageView image= findViewById(R.id.feedanimal_thucan);
+                    final ImageView image = findViewById(R.id.feedanimal_thucan);
                     image.setVisibility(View.INVISIBLE);
                     final GifImageView im = findViewById(R.id.feedanimal_pony);
                     im.setImageResource(R.drawable.feedanimal_pony_eating);
@@ -68,6 +68,7 @@ public class FeedAnimalActivity extends AppCompatActivity {
 
                             im.setImageResource(R.drawable.feedanimal_pony);
                             image.setVisibility(View.VISIBLE);
+                            if (soLan>25) {finish();}
                             doiAnh();
                         }
                     }, 2000);
@@ -82,13 +83,14 @@ public class FeedAnimalActivity extends AppCompatActivity {
                 if (flag < (thucAnList.length / 2)) {
                     final GifImageView im = findViewById(R.id.feedanimal_pikachu);
                     im.setImageResource(R.drawable.feedanimal_pikachu_eating);
-                    final ImageView image= findViewById(R.id.feedanimal_thucan);
+                    final ImageView image = findViewById(R.id.feedanimal_thucan);
                     image.setVisibility(View.INVISIBLE);
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             im.setImageResource(R.drawable.feedanimal_pikachu);
                             image.setVisibility(View.VISIBLE);
+                            if (soLan>25) {finish();}
                             doiAnh();
                         }
                     }, 2000);
@@ -121,7 +123,7 @@ public class FeedAnimalActivity extends AppCompatActivity {
                 ImageView img = findViewById(R.id.feedanimal_img_ponywish);
                 img.setImageResource(thucAnList[flag]);
             }
-
+            soLan++;
         }
     }
 

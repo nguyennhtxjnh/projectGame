@@ -1,5 +1,8 @@
 package com.example.quangchien.smartkid;
 
+import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -10,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MazeActivity extends AppCompatActivity {
+    private static int INPUT = 1;
     GestureDetector gestureDetector;
     int khoangCach = 50, KC = 40;
     int vanToc = 0;
@@ -78,6 +82,7 @@ public class MazeActivity extends AppCompatActivity {
 
     };
 
+
     String flagChangeSource = "";
 
     @Override
@@ -107,14 +112,14 @@ public class MazeActivity extends AppCompatActivity {
 //                }
 //            }
 //        }
-        LinearLayout linear_all =findViewById(R.id.lnlo_all);
+        LinearLayout linear_all = findViewById(R.id.lnlo_all);
         linear_all.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            gestureDetector.onTouchEvent(event);
-                            return true;
-                        }
-                    });
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                return true;
+            }
+        });
 
     }
 
@@ -375,7 +380,27 @@ public class MazeActivity extends AppCompatActivity {
             img1.setImageResource(R.drawable.conkhimaze);
             return;
         }
+        if (hangKhi == 6 && cotKhi == 7 && flagMazeOder == 4) {
+            victory();
+        }
 
+
+    }
+
+    public void victory() {
+        Intent intent = new Intent(this, maze_vitoryActivity.class);
+        startActivityForResult(intent, INPUT);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == INPUT) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        }
     }
 
     public void createMaze() {
@@ -389,6 +414,39 @@ public class MazeActivity extends AppCompatActivity {
                     img.setImageResource(R.drawable.anhnull);
                 }
             }
+        }
+        if (flagMazeOder == 1) {
+            ImageView img;
+            img = findViewById(R.id.maze17);
+            img.setImageResource(R.drawable.maze_mtp);
+            img = findViewById(R.id.maze76);
+            img.setImageResource(R.drawable.maze_mtx);
+        } else if (flagMazeOder == 2) {
+            ImageView img;
+            img = findViewById(R.id.maze10);
+            img.setImageResource(R.drawable.maze_mtt);
+            img = findViewById(R.id.maze76);
+            img.setImageResource(R.drawable.maze_mtx);
+        }
+        if (flagMazeOder == 3) {
+            ImageView img;
+            img = findViewById(R.id.maze06);
+            img.setImageResource(R.drawable.maze_mtl);
+            img = findViewById(R.id.maze37);
+            img.setImageResource(R.drawable.maze_mtp);
+            img = findViewById(R.id.maze67);
+            img.setImageResource(R.drawable.maze_mtp);
+        }
+        if (flagMazeOder == 4) {
+            ImageView img;
+            img = findViewById(R.id.maze06);
+            img.setImageResource(R.drawable.maze_mtl);
+            img = findViewById(R.id.maze30);
+            img.setImageResource(R.drawable.maze_mtt);
+            img = findViewById(R.id.maze60);
+            img.setImageResource(R.drawable.maze_mtt);
+            img = findViewById(R.id.maze67);
+            img.setImageResource(R.drawable.maze_naichuoi);
         }
     }
 }
