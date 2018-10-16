@@ -6,6 +6,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MazeActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class MazeActivity extends AppCompatActivity {
     int khoangCach = 50, KC = 40;
     int vanToc = 0;
     int hangKhi = 3, cotKhi = 0, ngang = 35, doc = 45;
+    int flagMazeOder = 1;
     int idMaze[][] = {
             {R.id.maze00, R.id.maze01, R.id.maze02, R.id.maze03, R.id.maze04, R.id.maze05, R.id.maze06, R.id.maze07},
             {R.id.maze10, R.id.maze11, R.id.maze12, R.id.maze13, R.id.maze14, R.id.maze15, R.id.maze16, R.id.maze17},
@@ -33,6 +35,49 @@ public class MazeActivity extends AppCompatActivity {
             {1, 1, 0, 1, 0, 1, 0, 1},
             {1, 1, 0, 0, 0, 1, 0, 1},
             {1, 1, 1, 1, 1, 1, 0, 1}};
+
+    int maze1[][] = {
+            {1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 0, 0, 0},
+            {1, 1, 0, 0, 0, 0, 1, 1},
+            {0, 0, 0, 1, 1, 1, 1, 1},
+            {1, 1, 0, 1, 0, 0, 0, 1},
+            {1, 1, 0, 1, 0, 1, 0, 1},
+            {1, 1, 0, 0, 0, 1, 0, 1},
+            {1, 1, 1, 1, 1, 1, 0, 1}};
+    int maze2[][] = {
+            {1, 1, 1, 1, 1, 1, 1, 1},
+            {0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 1, 1, 1, 0, 1},
+            {1, 0, 1, 1, 0, 0, 0, 1},
+            {1, 0, 0, 0, 1, 1, 1, 1},
+            {1, 0, 1, 0, 0, 0, 0, 1},
+            {1, 0, 0, 1, 1, 1, 0, 1},
+            {1, 1, 1, 1, 1, 1, 0, 1}
+    };
+    int maze3[][] = {
+            {1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 1, 1, 1, 0, 1},
+            {1, 0, 1, 0, 0, 1, 0, 1},
+            {1, 0, 0, 0, 1, 1, 0, 0},
+            {1, 0, 1, 0, 0, 0, 1, 1},
+            {1, 0, 1, 1, 1, 0, 1, 1},
+            {1, 0, 0, 0, 1, 0, 0, 0},
+            {1, 1, 1, 1, 1, 1, 1, 1}
+
+    };
+    int maze4[][] = {
+            {1, 1, 1, 1, 1, 1, 0, 1},
+            {1, 0, 1, 0, 1, 1, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 1},
+            {0, 0, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 1, 0, 1},
+            {0, 0, 1, 0, 1, 0, 0, 0},
+            {1, 1, 1, 1, 1, 1, 1, 1}
+
+    };
+
     String flagChangeSource = "";
 
     @Override
@@ -44,22 +89,32 @@ public class MazeActivity extends AppCompatActivity {
         decorView.setSystemUiVisibility(uiOptions);
         setContentView(R.layout.activity_maze);
         createMaze();
+        ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+        img1.setImageResource(R.drawable.conkhimaze);
 
         gestureDetector = new GestureDetector(this, new MyGeture());
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (maze[i][j] == 0) {
-                    ImageView img = findViewById(idMaze[i][j]);
-                    img.setOnTouchListener(new View.OnTouchListener() {
+//        for (int i = 0; i < 8; i++) {
+//            for (int j = 0; j < 8; j++) {
+//                if (maze[i][j] == 0) {
+//                    ImageView img = findViewById(idMaze[i][j]);
+//                    img.setOnTouchListener(new View.OnTouchListener() {
+//                        @Override
+//                        public boolean onTouch(View v, MotionEvent event) {
+//                            gestureDetector.onTouchEvent(event);
+//                            return true;
+//                        }
+//                    });
+//                }
+//            }
+//        }
+        LinearLayout linear_all =findViewById(R.id.lnlo_all);
+        linear_all.setOnTouchListener(new View.OnTouchListener() {
                         @Override
                         public boolean onTouch(View v, MotionEvent event) {
                             gestureDetector.onTouchEvent(event);
                             return true;
                         }
                     });
-                }
-            }
-        }
 
     }
 
@@ -81,6 +136,7 @@ public class MazeActivity extends AppCompatActivity {
                         }
                     }
                 }
+                checkAndChangeMaze();
             }
             //Phải sang trái
             if (e1.getX() - e2.getX() > khoangCach && Math.abs(velocityX) > vanToc) {
@@ -97,6 +153,7 @@ public class MazeActivity extends AppCompatActivity {
                         }
                     }
                 }
+                checkAndChangeMaze();
             }
             //trên xuống dưới
             if (e2.getY() - e1.getY() > KC && Math.abs(velocityY) > vanToc) {
@@ -113,6 +170,7 @@ public class MazeActivity extends AppCompatActivity {
                         }
                     }
                 }
+                checkAndChangeMaze();
             }
             if (e1.getY() - e2.getY() > khoangCach && Math.abs(velocityY) > vanToc) {
                 for (int i = 0; i < ((e1.getY() - e2.getY()) / ngang - 1); i++) {
@@ -127,8 +185,195 @@ public class MazeActivity extends AppCompatActivity {
                         }
                     }
                 }
+                checkAndChangeMaze();
             }
             return super.onFling(e1, e2, velocityX, velocityY);
+        }
+
+    }
+
+    public void checkAndChangeMaze() {
+        if (hangKhi == 7 && cotKhi == 6 && flagMazeOder == 1) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze3[i][j];
+                }
+            }
+            flagMazeOder = 3;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 0;
+            cotKhi = 6;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+            return;
+        }
+        if (hangKhi == 0 && cotKhi == 6 && flagMazeOder == 3) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze1[i][j];
+                }
+            }
+            flagMazeOder = 1;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 7;
+            cotKhi = 6;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+            return;
+        }
+        if (hangKhi == 1 && cotKhi == 7 && flagMazeOder == 1) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze2[i][j];
+                }
+            }
+            flagMazeOder = 2;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 1;
+            cotKhi = 0;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+
+            return;
+        }
+        if (hangKhi == 1 && cotKhi == 0 && flagMazeOder == 2) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze1[i][j];
+                }
+            }
+            flagMazeOder = 1;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 1;
+            cotKhi = 7;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+
+            return;
+        }
+        if (hangKhi == 1 && cotKhi == 7 && flagMazeOder == 1) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze2[i][j];
+                }
+            }
+            flagMazeOder = 2;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 1;
+            cotKhi = 0;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+
+            return;
+        }
+        if (hangKhi == 7 && cotKhi == 6 && flagMazeOder == 2) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze4[i][j];
+                }
+            }
+            flagMazeOder = 4;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 0;
+            cotKhi = 6;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+
+            return;
+        }
+        if (hangKhi == 0 && cotKhi == 6 && flagMazeOder == 4) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze2[i][j];
+                }
+            }
+            flagMazeOder = 2;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 7;
+            cotKhi = 6;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+
+            return;
+        }
+        if (hangKhi == 3 && cotKhi == 7 && flagMazeOder == 3) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze4[i][j];
+                }
+            }
+            flagMazeOder = 4;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 3;
+            cotKhi = 0;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+            return;
+        }
+        if (hangKhi == 3 && cotKhi == 0 && flagMazeOder == 4) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze3[i][j];
+                }
+            }
+            flagMazeOder = 3;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 3;
+            cotKhi = 7;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+            return;
+        }
+        if (hangKhi == 6 && cotKhi == 7 && flagMazeOder == 3) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze4[i][j];
+                }
+            }
+            flagMazeOder = 4;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 6;
+            cotKhi = 0;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+
+            return;
+        }
+        if (hangKhi == 6 && cotKhi == 0 && flagMazeOder == 4) {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    maze[i][j] = maze3[i][j];
+                }
+            }
+            flagMazeOder = 3;
+            ImageView img = findViewById(idMaze[hangKhi][cotKhi]);
+            img.setImageResource(R.drawable.anhnull);
+            hangKhi = 6;
+            cotKhi = 7;
+            createMaze();
+            ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
+            img1.setImageResource(R.drawable.conkhimaze);
+            return;
         }
 
     }
@@ -139,6 +384,9 @@ public class MazeActivity extends AppCompatActivity {
                 if (maze[i][j] == 1) {
                     ImageView img = findViewById(idMaze[i][j]);
                     img.setImageResource(R.drawable.gach);
+                } else {
+                    ImageView img = findViewById(idMaze[i][j]);
+                    img.setImageResource(R.drawable.anhnull);
                 }
             }
         }
