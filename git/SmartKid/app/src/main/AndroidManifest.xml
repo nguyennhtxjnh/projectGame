@@ -35,7 +35,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".FeedAnimalActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".ArrangeActivity"></activity>
     </application>
 
 </manifest>

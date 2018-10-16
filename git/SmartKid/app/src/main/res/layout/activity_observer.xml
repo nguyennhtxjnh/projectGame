@@ -16,6 +16,7 @@
         android:layout_alignTop="@+id/img2"
         android:layout_marginBottom="145dp"
         android:layout_marginLeft="145dp"
+        android:onClick="clickToArrange"
         android:src="@drawable/pikachuchay" />
 
 

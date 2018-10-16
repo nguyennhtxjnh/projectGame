@@ -16,4 +16,9 @@ public class ObserverActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ApplyActivity.class);
         startActivity(intent);
     }
+
+    public void clickToArrange(View view) {
+        Intent intent = new Intent(this,ArrangeActivity.class);
+        startActivity(intent);
+    }
 }
