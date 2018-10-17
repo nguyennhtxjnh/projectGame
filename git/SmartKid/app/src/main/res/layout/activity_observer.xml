@@ -35,7 +35,7 @@
                     android:id="@+id/img1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="clickToArrange"
+
                     android:src="@drawable/chuottui" />
                 <TextView
                     android:layout_gravity="center"
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="ghép ảnh"
                     android:textSize="20dp"
-                    android:onClick="clickToArrange"/>
+                    />
             </LinearLayout>
 
         </LinearLayout>
