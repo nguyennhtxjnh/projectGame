@@ -36,8 +36,10 @@
         <activity
             android:name=".FeedAnimalActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".ArrangeActivity" />
-        <activity android:name=".maze_vitoryActivity"></activity>
+        <activity android:name=".ArrangeActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".maze_vitoryActivity" android:screenOrientation="landscape" />
+        <activity android:name=".Apply2Activity" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

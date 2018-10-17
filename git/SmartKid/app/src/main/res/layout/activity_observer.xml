@@ -1,64 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/nenobserver"
+    android:orientation="horizontal"
+    android:background="@drawable/observer_nen"
     tools:context=".ObserverActivity">
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"></LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9"
+                android:orientation="vertical"
+                >
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_weight="1"
+                    android:id="@+id/img1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="clickToArrange"
+                    android:src="@drawable/chuottui" />
+                <TextView
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ghép ảnh"
+                    android:textSize="20dp"
+                    android:onClick="clickToArrange"/>
+            </LinearLayout>
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/img1"
-        android:layout_width="145dp"
-        android:layout_height="132dp"
-        android:layout_alignTop="@+id/img2"
-        android:layout_marginBottom="145dp"
-        android:layout_marginLeft="145dp"
-        android:onClick="clickToArrange"
-        android:src="@drawable/pikachuchay" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            ></LinearLayout>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/imageView5"
+            android:layout_width="79dp"
+            android:layout_height="54dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="17dp"
+            android:layout_marginBottom="13dp"
+            android:src="@drawable/homebutton"
+            android:onClick="ClickToHome"
+            />
+
+    </LinearLayout>
 
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/img2"
-        android:layout_width="135dp"
-        android:layout_height="141dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/pikachu"
-        android:onClick="clickToApply"
-        />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/imgPlus"
-        android:layout_width="69dp"
-        android:layout_height="98dp"
-        android:layout_below="@+id/img2"
-        android:layout_marginLeft="216dp"
-        android:src="@drawable/plus"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"></LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            >
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_gravity="center"
+                android:id="@+id/imgPlus"
+                android:layout_width="69dp"
+                android:layout_height="98dp"
+                android:src="@drawable/plus"
 
-        />
+                />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="106dp"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="48dp"
-        android:layout_marginLeft="245dp"
-        android:autoText="true"
-        android:text="Other"
-        android:textSize="30sp" />
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="trò chơi khác"
+                android:textSize="20dp" />
+        </LinearLayout>
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/imageView5"
-        android:layout_width="79dp"
-        android:layout_height="54dp"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="17dp"
-        android:layout_marginBottom="13dp"
-        android:src="@drawable/home" />
 
-</RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:orientation="vertical">
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_weight="1"
+                    android:id="@+id/img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="clickToApply"
+                    android:src="@drawable/sutu" />
+                <TextView
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tìm con vật"
+                    android:textSize="20dp"
+                    android:onClick="clickToApply"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"></LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            ></LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

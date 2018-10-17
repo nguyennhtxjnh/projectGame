@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -88,10 +89,8 @@ public class MazeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_maze);
         createMaze();
         ImageView img1 = findViewById(idMaze[hangKhi][cotKhi]);
@@ -146,7 +145,7 @@ public class MazeActivity extends AppCompatActivity {
             //Phải sang trái
             if (e1.getX() - e2.getX() > khoangCach && Math.abs(velocityX) > vanToc) {
 
-                for (int i = 0; i < (e1.getX() - e2.getX() / doc - 1); i++) {
+                for (int i = 0; i < ((e1.getX() - e2.getX()) / doc - 1); i++) {
                     if (cotKhi > 0) {
                         if (maze[hangKhi][cotKhi - 1] == 0) {
 //                            Toast.makeText(MazeActivity.this, "phai sang trai " + ((e2.getX() - e1.getX())/doc) , Toast.LENGTH_SHORT).show();

@@ -38,7 +38,7 @@ public class ApplyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.activity_apply );
@@ -48,7 +48,7 @@ public class ApplyActivity extends AppCompatActivity {
         run1 = (GifImageView) findViewById(R.id.img12);
         eat = (GifImageView) findViewById(R.id.img2);
         eat1 = (GifImageView) findViewById(R.id.img22);
-        target1 = (LinearLayout) findViewById(R.id.main);
+        target1 = (LinearLayout) findViewById(R.id.apply);
 
         run.setOnDragListener(onDragListener);
         eat.setOnDragListener(onDragListener);
@@ -96,7 +96,7 @@ public class ApplyActivity extends AppCompatActivity {
 
                     if(view.getId() == R.id.img12 && v.getId() == R.id.img1){
                         final GifImageView im = (GifImageView) findViewById(R.id.img1);
-                        im.setImageResource(img3[thutu]);
+                        im.setImageResource(R.drawable.pikachuchay);
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img12);
                         im1.setImageResource(R.drawable.anhnull);
                         handler.postDelayed(new Runnable() {
@@ -104,7 +104,9 @@ public class ApplyActivity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 2){
-                                    changeImage();
+                              changeImage();
+
+
                                     flag = 0;
 
                                 }
@@ -114,7 +116,7 @@ public class ApplyActivity extends AppCompatActivity {
                     }else if(view.getId() == R.id.img22 && v.getId() == R.id.img2){
 
                         final GifImageView im = (GifImageView) findViewById(R.id.img2);
-                        im.setImageResource(img4[thutu]);
+                        im.setImageResource(R.drawable.pikachu);
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img22);
                         im1.setImageResource(R.drawable.anhnull);
                         handler.postDelayed(new Runnable() {
@@ -137,19 +139,21 @@ public class ApplyActivity extends AppCompatActivity {
     };
 
     public void changeImage(){
-        thutu++;
-        Intent intent = new Intent();
-        try {
-//            run1.setVisibility(View.VISIBLE);
-//            eat1.setVisibility(View.VISIBLE);
-            run.setImageResource(img1[thutu]);
-            run1.setImageResource(img3[thutu]);
-            eat.setImageResource(img2[thutu]);
-            eat1.setImageResource(img4[thutu]);
-        }catch ( Exception e ){
-            intent = new Intent(this,ObserverActivity.class);
-            startActivity(intent);
-        }
+        //thutu++;
+        Intent intent = new Intent(this,Apply2Activity.class);
+        startActivity(intent);
+
+//        try {
+////            run1.setVisibility(View.VISIBLE);
+////            eat1.setVisibility(View.VISIBLE);
+//            run.setImageResource(img1[thutu]);
+//            run1.setImageResource(img3[thutu]);
+//            eat.setImageResource(img2[thutu]);
+//            eat1.setImageResource(img4[thutu]);
+//        }catch ( Exception e ){
+//            intent = new Intent(this,ObserverActivity.class);
+//            startActivity(intent);
+//        }
     }
     View.OnDragListener drag = new View.OnDragListener() {
         @Override
