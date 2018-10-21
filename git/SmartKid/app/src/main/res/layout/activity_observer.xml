@@ -4,56 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:background="@drawable/observer_nen"
+    android:orientation="horizontal"
     tools:context=".ObserverActivity">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"></LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.9"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <pl.droidsonroids.gif.GifImageView
-                    android:layout_weight="1"
                     android:id="@+id/img1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:layout_weight="1"
+                    android:onClick="clickToArrange"
                     android:src="@drawable/chuottui" />
+
                 <TextView
-                    android:layout_gravity="center"
-                    android:textColor="@color/colorPrimary"
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="ghép ảnh"
-                    android:textSize="20dp"
-                    />
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp" />
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
-            ></LinearLayout>
+            android:layout_weight="0.2"></LinearLayout>
+
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/imageView5"
             android:layout_width="79dp"
@@ -61,97 +63,98 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="17dp"
             android:layout_marginBottom="13dp"
-            android:src="@drawable/homebutton"
             android:onClick="ClickToHome"
-            />
+            android:src="@drawable/homebutton" />
 
     </LinearLayout>
-
 
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.7"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"></LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <pl.droidsonroids.gif.GifImageView
-                android:layout_gravity="center"
                 android:id="@+id/imgPlus"
                 android:layout_width="69dp"
                 android:layout_height="98dp"
+                android:layout_gravity="center"
                 android:src="@drawable/plus"
 
                 />
 
             <TextView
-                android:textColor="@color/colorPrimary"
-                android:layout_gravity="center"
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="trò chơi khác"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20dp" />
         </LinearLayout>
 
 
-
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:orientation="vertical">
+
                 <pl.droidsonroids.gif.GifImageView
-                    android:layout_weight="1"
                     android:id="@+id/img2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:onClick="clickToApply"
                     android:src="@drawable/sutu" />
+
                 <TextView
-                    android:layout_gravity="center"
-                    android:textColor="@color/colorPrimary"
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tìm con vật"
-                    android:textSize="20dp"
+                    android:layout_gravity="center"
                     android:onClick="clickToApply"
-                    />
+                    android:text="tìm con vật"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"></LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
-            ></LinearLayout>
+            android:layout_weight="0.6"></LinearLayout>
 
 
     </LinearLayout>

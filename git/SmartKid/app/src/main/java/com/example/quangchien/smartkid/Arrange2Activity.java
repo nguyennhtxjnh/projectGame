@@ -14,10 +14,10 @@ import android.widget.LinearLayout;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class ArrangeActivity extends AppCompatActivity {
+public class Arrange2Activity extends AppCompatActivity {
     ImageView gau1, gau2, gau3, gau4, gaua, gaub, gauc, gaud, st1, st2, st3, st4, sta, stb, stc, std;
     GifImageView cho, mew;
-    int flag;
+    boolean flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +74,7 @@ public class ArrangeActivity extends AppCompatActivity {
             ClipData clipData = ClipData.newPlainText("", "");
             View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
             view.startDrag(clipData, builder, view, 0);
+//            view.setVisibility(View.INVISIBLE);
             return true;
         }
     };
@@ -100,31 +101,30 @@ public class ArrangeActivity extends AppCompatActivity {
 //
 //                    v.setVisibility(View.VISIBLE);
                     if (view.getId() == R.id.img1 && v.getId() == R.id.img11) {
-                        flag++;
+                        flag1 = true;
                         final ImageView gif = findViewById(R.id.img11);
                         gif.setImageResource(R.drawable.a1);
                         gaua.setLayoutParams(lp);
                         gau1.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img2 && v.getId() == R.id.img55) {
-                        flag++;
+                        flag2 = true;
                         final ImageView img = findViewById(R.id.img55);
                         img.setImageResource(R.drawable.a2);
                         gaub.setLayoutParams(lp);
                         gau2.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img3 && v.getId() == R.id.img66) {
-                        flag++;
+                        flag3 = true;
                         final ImageView img = findViewById(R.id.img66);
                         img.setImageResource(R.drawable.a3);
                         gauc.setLayoutParams(lp);
                         gau3.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img4 && v.getId() == R.id.img22) {
-                        flag++;
+                        flag4 = true;
                         final ImageView img = findViewById(R.id.img22);
                         img.setImageResource(R.drawable.a4);
                         gaud.setLayoutParams(lp);
                         gau4.setVisibility(View.INVISIBLE);
                     }
-
 //                    else if(flag1 == 1 && flag2 == 1 && flag3 == 1 && flag4 == 1){
 //                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 //                        lp.setMargins(0, 0, 0, 0);
@@ -134,55 +134,50 @@ public class ArrangeActivity extends AppCompatActivity {
 //                        gaud.setLayoutParams(lp);
 // }
                     else if (view.getId() == R.id.sutu1 && v.getId() == R.id.img88) {
-                        flag++;
+                        flag5 = true;
                         final ImageView img = findViewById(R.id.img88);
                         img.setImageResource(R.drawable.mew1);
                         sta.setLayoutParams(lp);
                         st1.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu2 && v.getId() == R.id.img33) {
-                        flag++;
+                        flag6 = true;
                         final ImageView img = findViewById(R.id.img33);
                         img.setImageResource(R.drawable.mew2);
                         stb.setLayoutParams(lp);
                         st2.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu3 && v.getId() == R.id.img44) {
-                        flag++;
+                        flag7 = true;
                         final ImageView img = findViewById(R.id.img44);
                         img.setImageResource(R.drawable.mew3);
                         stc.setLayoutParams(lp);
                         st3.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu4 && v.getId() == R.id.img77) {
-                        flag++;
+                        flag8 = true;
                         final ImageView img = findViewById(R.id.img77);
                         img.setImageResource(R.drawable.mew4);
                         std.setLayoutParams(lp);
                         st4.setVisibility(View.INVISIBLE);
                     }
-                    if (flag == 4) {
+                    if (flag1 == true && flag2 == true && flag3 == true && flag4 == true) {
                         gaua.setVisibility(View.INVISIBLE);
                         gaub.setVisibility(View.INVISIBLE);
                         gauc.setVisibility(View.INVISIBLE);
                         gaud.setVisibility(View.INVISIBLE);
                         cho.setVisibility(View.VISIBLE);
                     }
-                    if (flag == 8) {
+                    if (flag5 == true && flag6 == true && flag7 == true && flag8 == true) {
                         sta.setVisibility(View.INVISIBLE);
                         stb.setVisibility(View.INVISIBLE);
                         stc.setVisibility(View.INVISIBLE);
                         std.setVisibility(View.INVISIBLE);
                         mew.setVisibility(View.VISIBLE);
-                        flag ++;
-                    }
-                    if (flag == 9) {
-                        man2();
-                        flag = 0;
                     }
                     break;
             }
+
+
             return true;
-
         }
-
 
 //void batHinh(){
 //            for (int i=0;i<8;i++){
@@ -193,11 +188,6 @@ public class ArrangeActivity extends AppCompatActivity {
 //            }
 //        }
     };
-
-    public void man2() {
-        Intent intent = new Intent(this, Arrange2Activity.class);
-        startActivity(intent);
-    }
 
 //    public void changeImage(){
 //        order++;
