@@ -17,7 +17,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class ArrangeActivity extends AppCompatActivity {
     ImageView gau1, gau2, gau3, gau4, gaua, gaub, gauc, gaud, st1, st2, st3, st4, sta, stb, stc, std;
     GifImageView cho, mew;
-    int flag;
+    int flag1,flag2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,25 +100,25 @@ public class ArrangeActivity extends AppCompatActivity {
 //
 //                    v.setVisibility(View.VISIBLE);
                     if (view.getId() == R.id.img1 && v.getId() == R.id.img11) {
-                        flag++;
+                        flag1++;
                         final ImageView gif = findViewById(R.id.img11);
                         gif.setImageResource(R.drawable.a1);
                         gaua.setLayoutParams(lp);
                         gau1.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img2 && v.getId() == R.id.img55) {
-                        flag++;
+                        flag1++;
                         final ImageView img = findViewById(R.id.img55);
                         img.setImageResource(R.drawable.a2);
                         gaub.setLayoutParams(lp);
                         gau2.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img3 && v.getId() == R.id.img66) {
-                        flag++;
+                        flag1++;
                         final ImageView img = findViewById(R.id.img66);
                         img.setImageResource(R.drawable.a3);
                         gauc.setLayoutParams(lp);
                         gau3.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img4 && v.getId() == R.id.img22) {
-                        flag++;
+                        flag1++;
                         final ImageView img = findViewById(R.id.img22);
                         img.setImageResource(R.drawable.a4);
                         gaud.setLayoutParams(lp);
@@ -134,48 +134,49 @@ public class ArrangeActivity extends AppCompatActivity {
 //                        gaud.setLayoutParams(lp);
 // }
                     else if (view.getId() == R.id.sutu1 && v.getId() == R.id.img88) {
-                        flag++;
+                        flag2++;
                         final ImageView img = findViewById(R.id.img88);
                         img.setImageResource(R.drawable.mew1);
                         sta.setLayoutParams(lp);
                         st1.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu2 && v.getId() == R.id.img33) {
-                        flag++;
+                        flag2++;
                         final ImageView img = findViewById(R.id.img33);
                         img.setImageResource(R.drawable.mew2);
                         stb.setLayoutParams(lp);
                         st2.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu3 && v.getId() == R.id.img44) {
-                        flag++;
+                        flag2++;
                         final ImageView img = findViewById(R.id.img44);
                         img.setImageResource(R.drawable.mew3);
                         stc.setLayoutParams(lp);
                         st3.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu4 && v.getId() == R.id.img77) {
-                        flag++;
+                        flag2++;
                         final ImageView img = findViewById(R.id.img77);
                         img.setImageResource(R.drawable.mew4);
                         std.setLayoutParams(lp);
                         st4.setVisibility(View.INVISIBLE);
                     }
-                    if (flag == 4) {
+                    if (flag1 == 4) {
                         gaua.setVisibility(View.INVISIBLE);
                         gaub.setVisibility(View.INVISIBLE);
                         gauc.setVisibility(View.INVISIBLE);
                         gaud.setVisibility(View.INVISIBLE);
                         cho.setVisibility(View.VISIBLE);
+                        flag1 ++;
                     }
-                    if (flag == 8) {
+                    if (flag2 == 4) {
                         sta.setVisibility(View.INVISIBLE);
                         stb.setVisibility(View.INVISIBLE);
                         stc.setVisibility(View.INVISIBLE);
                         std.setVisibility(View.INVISIBLE);
                         mew.setVisibility(View.VISIBLE);
-                        flag ++;
+                        flag2 ++;
                     }
-                    if (flag == 9) {
+                    if (flag1 == 5 && flag2 == 5) {
                         man2();
-                        flag = 0;
+                       flag1 =0; flag2 = 0;
                     }
                     break;
             }
