@@ -27,7 +27,6 @@ public class ObserverActivity extends AppCompatActivity {
     }
 
     public void ClickToHome(View view) {
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 }

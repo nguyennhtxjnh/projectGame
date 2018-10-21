@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/avatar_baby"
+        android:icon="@drawable/gau"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:label="@string/app_name"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +47,10 @@
         <activity
             android:name=".Apply2Activity"
             android:screenOrientation="landscape" />
-        <activity android:name=".Arrange2Activity"></activity>
+        <activity android:name=".Arrange2Activity"  android:screenOrientation="landscape" />
+        <activity android:name=".VictoryActivity"  android:screenOrientation="landscape"  />
+        <activity android:name=".PracticeActivity"  android:screenOrientation="landscape"  />
+        <activity android:name=".DifferentActivity"  android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

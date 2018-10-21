@@ -3,6 +3,7 @@ package com.example.quangchien.smartkid;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -14,7 +15,7 @@ import android.widget.LinearLayout;
 import pl.droidsonroids.gif.GifImageView;
 
 public class Apply2Activity extends AppCompatActivity {
-
+    private static int INPUT = 1;
     LinearLayout target1;
     GifImageView anh1, anh2,anh3,anh4,anh11,anh22,anh33,anh44;
     int flag = 0, thutu=0;
@@ -213,9 +214,12 @@ public class Apply2Activity extends AppCompatActivity {
             anh33.setImageResource(img3[thutu]);
             anh44.setImageResource(img1[thutu]);
         }else {
-            Intent intent = this.getIntent();
-            this.setResult(RESULT_OK, intent);
+            Intent intent = new Intent(this,VictoryActivity.class);
+            startActivityForResult(intent,INPUT);
             finish();
+//            Intent intent = this.getIntent();
+//            this.setResult(RESULT_OK, intent);
+//            finish();
         }
     }
     View.OnDragListener drag = new View.OnDragListener() {
@@ -238,5 +242,13 @@ public class Apply2Activity extends AppCompatActivity {
             }  return true;}
     };
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == INPUT) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        }
+    }
 }

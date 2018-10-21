@@ -94,7 +94,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/voi"/>
+                android:src="@drawable/voi"
+                android:onClick="clickToPractice"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
