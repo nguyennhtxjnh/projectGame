@@ -202,8 +202,8 @@ public class Apply2Activity extends AppCompatActivity {
 
     public void changeImage(){
         thutu++;
-        Intent intent = new Intent();
-        try {
+
+        if(thutu < img1.length) {
             anh1.setImageResource(img8[thutu]);
             anh2.setImageResource(img6[thutu]);
             anh3.setImageResource(img7[thutu]);
@@ -212,9 +212,10 @@ public class Apply2Activity extends AppCompatActivity {
             anh22.setImageResource(img2[thutu]);
             anh33.setImageResource(img3[thutu]);
             anh44.setImageResource(img1[thutu]);
-        }catch ( Exception e ){
-            intent = new Intent(this,ObserverActivity.class);
-            startActivity(intent);
+        }else {
+            Intent intent = this.getIntent();
+            this.setResult(RESULT_OK, intent);
+            finish();
         }
     }
     View.OnDragListener drag = new View.OnDragListener() {
@@ -236,4 +237,6 @@ public class Apply2Activity extends AppCompatActivity {
 
             }  return true;}
     };
+
+
 }
