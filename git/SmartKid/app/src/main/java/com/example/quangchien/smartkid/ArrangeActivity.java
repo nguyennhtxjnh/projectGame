@@ -16,12 +16,14 @@ public class ArrangeActivity extends AppCompatActivity {
     ImageView gau1, gau2, gau3, gau4, gaua, gaub, gauc, gaud, st1, st2, st3, st4, sta, stb, stc, std;
     GifImageView cho, mew;
     boolean flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8;
+
+//    private  Integer image1[]  = {R.};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.activity_arrange2);
+        setContentView(R.layout.activity_arrange);
 
         gau1 = (ImageView) findViewById(R.id.img1);
         gaua = (ImageView) findViewById(R.id.img11);

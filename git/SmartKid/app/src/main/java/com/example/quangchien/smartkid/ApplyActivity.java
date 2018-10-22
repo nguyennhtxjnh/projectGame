@@ -104,10 +104,8 @@ public class ApplyActivity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 2){
+
                               changeImage();
-
-
-                                    flag = 0;
 
                                 }
                             }
