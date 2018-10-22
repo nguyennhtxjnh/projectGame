@@ -21,7 +21,7 @@ public class PracticeActivity extends AppCompatActivity {
     }
 
     public void clickToSimilar(View view) {
-        Intent intent = new Intent(this,ArrangeActivity.class);
+        Intent intent = new Intent(this,PickSamePictureActivity.class);
         startActivity(intent);
     }
 

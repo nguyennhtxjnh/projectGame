@@ -47,10 +47,19 @@
         <activity
             android:name=".Apply2Activity"
             android:screenOrientation="landscape" />
-        <activity android:name=".Arrange2Activity"  android:screenOrientation="landscape" />
-        <activity android:name=".VictoryActivity"  android:screenOrientation="landscape"  />
-        <activity android:name=".PracticeActivity"  android:screenOrientation="landscape"  />
-        <activity android:name=".DifferentActivity"  android:screenOrientation="landscape"/>
+        <activity
+            android:name=".Arrange2Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".VictoryActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".PracticeActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".DifferentActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".PickSamePictureActivity"></activity>
     </application>
 
 </manifest>
