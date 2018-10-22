@@ -3,6 +3,7 @@ package com.example.quangchien.smartkid;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import pl.droidsonroids.gif.GifImageView;
 
 public class ApplyActivity extends AppCompatActivity {
+    private static int INPUT = 1;
     LinearLayout target1;
     GifImageView run, eat,run1,eat1;
     int flag = 0, thutu=0;
@@ -139,7 +141,8 @@ public class ApplyActivity extends AppCompatActivity {
     public void changeImage(){
         //thutu++;
         Intent intent = new Intent(this,Apply2Activity.class);
-        startActivity(intent);
+        startActivityForResult(intent,INPUT);
+        finish();
 
 //        try {
 ////            run1.setVisibility(View.VISIBLE);
@@ -170,4 +173,13 @@ public class ApplyActivity extends AppCompatActivity {
 
             }  return true;}
     };
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == INPUT) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        }
+    }
 }

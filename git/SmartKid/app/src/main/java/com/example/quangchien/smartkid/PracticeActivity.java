@@ -6,37 +6,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-public class ChosseStyle extends AppCompatActivity {
+public class PracticeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        setContentView(R.layout.activity_chosse_style);
+        setContentView(R.layout.activity_practice);
+    }
+    public void clickToDifferent(View view) {
+        Intent intent = new Intent(this,DifferentActivity.class);
+        startActivity(intent);
     }
 
-    public void ClickToFinish(View view) {
+    public void clickToSimilar(View view) {
+        Intent intent = new Intent(this,ArrangeActivity.class);
+        startActivity(intent);
+    }
+
+    public void ClickToHome(View view) {
         finish();
-    }
-
-    public void clickToThinking(View view) {
-        Intent intent = new Intent(this, thinkingActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void clickToObserver(View view) {
-        Intent intent = new Intent(this,ObserverActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void clickToPractice(View view) {
-        Intent intent = new Intent(this,PracticeActivity.class);
-        startActivity(intent);
-
     }
 }
