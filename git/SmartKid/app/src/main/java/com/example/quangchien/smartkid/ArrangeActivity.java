@@ -100,7 +100,7 @@ public class ArrangeActivity extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             ClipData clipData = ClipData.newPlainText("", "");
             View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
-            view.setVisibility(View.INVISIBLE);
+//            view.setVisibility(View.INVISIBLE);
             view.startDrag(clipData, builder, view, 0);
             return true;
         }
@@ -121,10 +121,10 @@ public class ArrangeActivity extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
 
-                    ImageView btn= (ImageView) event.getLocalState();
-                    if(v instanceof LinearLayout){
-                        btn.setVisibility(View.VISIBLE);
-                    }
+//                    ImageView btn= (ImageView) event.getLocalState();
+//                    if(v instanceof LinearLayout){
+//                        btn.setVisibility(View.VISIBLE);
+//                    }
 
                     v.setVisibility(View.VISIBLE);
                     if (view.getId() == R.id.img1 && v.getId() == R.id.img11) {
@@ -143,7 +143,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         gaua.setLayoutParams(lp);
-//                        gau1.setVisibility(View.INVISIBLE);
+                        gau1.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img2 && v.getId() == R.id.img55) {
                         flag1++;
                         final ImageView img = findViewById(R.id.img55);
@@ -160,7 +160,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         gaub.setLayoutParams(lp);
-//                        gau2.setVisibility(View.INVISIBLE);
+                        gau2.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img3 && v.getId() == R.id.img66) {
                         flag1++;
                         final ImageView img = findViewById(R.id.img66);
@@ -177,7 +177,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         gauc.setLayoutParams(lp);
-//                        gau3.setVisibility(View.INVISIBLE);
+                        gau3.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.img4 && v.getId() == R.id.img22) {
                         flag1++;
                         final ImageView img = findViewById(R.id.img22);
@@ -194,17 +194,8 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         gaud.setLayoutParams(lp);
-//                        gau4.setVisibility(View.INVISIBLE);
+                        gau4.setVisibility(View.INVISIBLE);
                     }
-
-//                    else if(flag1 == 1 && flag2 == 1 && flag3 == 1 && flag4 == 1){
-//                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//                        lp.setMargins(0, 0, 0, 0);
-//                        gaua.setLayoutParams(lp);
-//                        gaub.setLayoutParams(lp);
-//                        gauc.setLayoutParams(lp);
-//                        gaud.setLayoutParams(lp);
-// }
                     else if (view.getId() == R.id.sutu1 && v.getId() == R.id.img88) {
                         flag2++;
                         final ImageView img = findViewById(R.id.img88);
@@ -221,7 +212,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         sta.setLayoutParams(lp);
-//                        st1.setVisibility(View.INVISIBLE);
+                        st1.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu2 && v.getId() == R.id.img33) {
                         flag2++;
                         final ImageView img = findViewById(R.id.img33);
@@ -238,7 +229,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         stb.setLayoutParams(lp);
-//                        st2.setVisibility(View.INVISIBLE);
+                        st2.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu3 && v.getId() == R.id.img44) {
                         flag2++;
                         final ImageView img = findViewById(R.id.img44);
@@ -255,7 +246,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         stc.setLayoutParams(lp);
-//                        st3.setVisibility(View.INVISIBLE);
+                        st3.setVisibility(View.INVISIBLE);
                     } else if (view.getId() == R.id.sutu4 && v.getId() == R.id.img77) {
                         flag2++;
                         final ImageView img = findViewById(R.id.img77);
@@ -272,7 +263,7 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                         std.setLayoutParams(lp);
-//                        st4.setVisibility(View.INVISIBLE);
+                        st4.setVisibility(View.INVISIBLE);
                     }
                     if (flag1 == 4) {
                         gaua.setVisibility(View.INVISIBLE);
@@ -312,10 +303,6 @@ public class ArrangeActivity extends AppCompatActivity {
                             }
                         },5000);
                     }
-//                    if (flag1 == 5 && flag2 == 5) {
-//                        man2();
-//                       flag1 =0; flag2 = 0;
-//                    }
                     break;
             }
             return true;
