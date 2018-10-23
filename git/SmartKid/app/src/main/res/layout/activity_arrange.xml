@@ -31,12 +31,13 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:id="@+id/img1"
+                    android:id="@+id/img4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:scaleType="fitXY"
-                    android:src="@drawable/a1" />
+                    android:src="@drawable/a4" />
             </LinearLayout>
 
 
@@ -169,13 +170,14 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/mew1" />
                 <ImageView
-                    android:id="@+id/img2"
+                    android:id="@+id/img1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:scaleType="fitXY"
                     android:layout_weight="1"
-                    android:src="@drawable/a2" />
+                    android:src="@drawable/a1" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -217,12 +219,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <ImageView
-                    android:id="@+id/sutu4"
+                    android:id="@+id/img2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/mew4" />
+                    android:src="@drawable/a2" />
 
             </LinearLayout>
         </LinearLayout>
@@ -332,15 +334,15 @@
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:src="@drawable/mew3" />
+
             <ImageView
-                android:id="@+id/img4"
+                android:id="@+id/sutu4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/a4" />
-
+                android:layout_weight="1"
+                android:src="@drawable/mew4" />
         </LinearLayout>
     </LinearLayout>
 
