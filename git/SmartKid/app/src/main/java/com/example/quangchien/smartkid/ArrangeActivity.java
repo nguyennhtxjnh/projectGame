@@ -53,6 +53,7 @@ public class ArrangeActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_arrange);
 
+        LinearLayout abc= findViewById(R.id.lu);
         gau1 = (ImageView) findViewById(R.id.img1);
         gaua = (ImageView) findViewById(R.id.img11);
         gau2 = (ImageView) findViewById(R.id.img2);
@@ -82,7 +83,7 @@ public class ArrangeActivity extends AppCompatActivity {
         stb.setOnDragListener(onDragListener);
         stc.setOnDragListener(onDragListener);
         std.setOnDragListener(onDragListener);
-
+        abc.setOnDragListener(onDragListener);
 
         gau1.setOnTouchListener(onTouchListener);
         gau2.setOnTouchListener(onTouchListener);
@@ -116,8 +117,12 @@ public class ArrangeActivity extends AppCompatActivity {
 
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENTERED:
+                    ImageView btn= (ImageView) event.getLocalState();
+                    btn.setVisibility(View.INVISIBLE);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
+                    ImageView btn11= (ImageView) event.getLocalState();
+                    btn11.setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
 
@@ -125,7 +130,8 @@ public class ArrangeActivity extends AppCompatActivity {
 //                    if(v instanceof LinearLayout){
 //                        btn.setVisibility(View.VISIBLE);
 //                    }
-
+                    ImageView btn12= (ImageView) event.getLocalState();
+                    btn12.setVisibility(View.VISIBLE);
                     v.setVisibility(View.VISIBLE);
                     if (view.getId() == R.id.img1 && v.getId() == R.id.img11) {
                         flag1++;
