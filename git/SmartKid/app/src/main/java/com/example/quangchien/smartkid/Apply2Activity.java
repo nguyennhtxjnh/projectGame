@@ -10,6 +10,7 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -229,8 +230,12 @@ public class Apply2Activity extends AppCompatActivity {
             final View v = (View) dragEvent.getLocalState();
             switch (d){
                 case DragEvent.ACTION_DRAG_ENTERED:
+                    ImageView btn11= (ImageView) dragEvent.getLocalState();
+                    btn11.setVisibility(View.INVISIBLE);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
+                    ImageView btn12= (ImageView) dragEvent.getLocalState();
+                    btn12.setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
                     anh1.setVisibility(View.VISIBLE);
