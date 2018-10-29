@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import pl.droidsonroids.gif.GifImageView;
 
 public class Apply2Activity extends AppCompatActivity {
-    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayerCach, mediaPlayeryeah;
     private static int INPUT = 1;
     LinearLayout target1,target;
     GifImageView anh1, anh2,anh3,anh4,anh11,anh22,anh33,anh44, congra;
@@ -58,6 +58,8 @@ public class Apply2Activity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_apply2 );
 
+        mediaPlayerCach = MediaPlayer.create(Apply2Activity.this, R.raw.cach);
+        mediaPlayeryeah = MediaPlayer.create(Apply2Activity.this, R.raw.yeah);
 
 
         anh1 = (GifImageView) findViewById(R.id.img1);
@@ -92,9 +94,7 @@ public class Apply2Activity extends AppCompatActivity {
             ClipData clipData = ClipData.newPlainText("","");
             View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
             view.startDrag(clipData,builder,view,0);
-            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                mediaPlayer.pause();
-            }
+
             if(view.getId() == anh1.getId()){
                 anh1.setVisibility(View.INVISIBLE);
             }
@@ -132,8 +132,8 @@ public class Apply2Activity extends AppCompatActivity {
                     anh4.setVisibility(View.VISIBLE);
 
                     if(view.getId() == R.id.img1 && v.getId() == R.id.img11){
-                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.yeah);
-                        mediaPlayer.start();
+
+                        mediaPlayerCach.start();
                         final GifImageView im = (GifImageView) findViewById(R.id.img11);
                         im.setImageResource(img8[thutu]);
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img1);
@@ -143,11 +143,7 @@ public class Apply2Activity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 4){
-                                    if(mediaPlayer != null && mediaPlayer.isPlaying()){
-                                        mediaPlayer.pause();}
-
-                                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.gioi);
-                                        mediaPlayer.start();
+                                        mediaPlayeryeah.start();
 
                                     target = (LinearLayout) findViewById(R.id.imgTarget) ;
                                     target.setVisibility(View.GONE);
@@ -156,9 +152,6 @@ public class Apply2Activity extends AppCompatActivity {
                                     handler.postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                                                mediaPlayer.pause();
-                                            }
                                             changeImage();
                                         }
                                     },1500);
@@ -171,8 +164,7 @@ public class Apply2Activity extends AppCompatActivity {
 
                     }else if(view.getId() == R.id.img2 && v.getId() == R.id.img22){
 
-                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.yeah);
-                        mediaPlayer.start();
+                        mediaPlayerCach.start();
                         final GifImageView im = (GifImageView) findViewById(R.id.img22);
                         im.setImageResource(img6[thutu]);
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img2);
@@ -182,10 +174,7 @@ public class Apply2Activity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 4){
-                                    if(mediaPlayer != null && mediaPlayer.isPlaying()){
-                                        mediaPlayer.pause();}
-                                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.gioi);
-                                        mediaPlayer.start();
+                                        mediaPlayeryeah.start();
 
                                     target = (LinearLayout) findViewById(R.id.imgTarget) ;
                                     target.setVisibility(View.GONE);
@@ -194,9 +183,6 @@ public class Apply2Activity extends AppCompatActivity {
                                     handler.postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                                                mediaPlayer.pause();
-                                            }
                                             changeImage();
                                         }
                                     },1500);
@@ -209,8 +195,8 @@ public class Apply2Activity extends AppCompatActivity {
 
                     }else
                     if(view.getId() == R.id.img3 && v.getId() == R.id.img33){
-                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.yeah);
-                        mediaPlayer.start();
+
+                        mediaPlayerCach.start();
                         final GifImageView im = (GifImageView) findViewById(R.id.img33);
                         im.setImageResource(img7[thutu]);
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img3);
@@ -220,11 +206,7 @@ public class Apply2Activity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 4){
-                                    if(mediaPlayer != null && mediaPlayer.isPlaying()){
-                                        mediaPlayer.pause();}
-
-                                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.gioi);
-                                        mediaPlayer.start();
+                                        mediaPlayeryeah.start();
 
                                     target = (LinearLayout) findViewById(R.id.imgTarget) ;
                                     target.setVisibility(View.GONE);
@@ -233,9 +215,7 @@ public class Apply2Activity extends AppCompatActivity {
                                     handler.postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                                                mediaPlayer.pause();
-                                            }
+
                                             changeImage();
                                         }
                                     },1500);
@@ -249,8 +229,7 @@ public class Apply2Activity extends AppCompatActivity {
 
                     }else if(view.getId() == R.id.img4 && v.getId() == R.id.img44){
 
-                        mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.yeah);
-                        mediaPlayer.start();
+                        mediaPlayerCach.start();
                         final GifImageView im = (GifImageView) findViewById(R.id.img44);
                         im.setImageResource(img5[thutu]);
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img4);
@@ -260,11 +239,8 @@ public class Apply2Activity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 4){
-                                    if(mediaPlayer != null && mediaPlayer.isPlaying()){
-                                        mediaPlayer.pause();}
 
-                                    mediaPlayer = MediaPlayer.create(Apply2Activity.this, R.raw.gioi);
-                                    mediaPlayer.start();
+                                    mediaPlayeryeah.start();
 
                                     target = (LinearLayout) findViewById(R.id.imgTarget) ;
                                     target.setVisibility(View.GONE);
@@ -273,9 +249,7 @@ public class Apply2Activity extends AppCompatActivity {
                                     handler.postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                                                mediaPlayer.pause();
-                                            }
+
                                             changeImage();
                                         }
                                     },1500);
@@ -295,6 +269,9 @@ public class Apply2Activity extends AppCompatActivity {
     };
 
     public void changeImage(){
+        if(mediaPlayeryeah.isPlaying()){
+            mediaPlayeryeah.pause();
+        }
         thutu++;
         target = (LinearLayout) findViewById(R.id.imgTarget) ;
         target.setVisibility(View.VISIBLE);
@@ -349,10 +326,9 @@ public class Apply2Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == INPUT) {
             if (resultCode == RESULT_OK) {
+
                 finish();
-                if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                    mediaPlayer.pause();
-                }
+
             }
         }
     }

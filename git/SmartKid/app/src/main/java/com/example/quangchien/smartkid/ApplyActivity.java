@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 import pl.droidsonroids.gif.GifImageView;
@@ -45,6 +46,11 @@ public class ApplyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        Intent intent = new Intent(ApplyActivity.this,MyMusicService.class);
+        if(intent != null){
+            Toast.makeText(this,"huhu", Toast.LENGTH_SHORT).show();
+            stopService(intent);
+        }
         mediaPlayer = MediaPlayer.create(ApplyActivity.this,R.raw.bong );
         mediaPlayer.start();
         setContentView(R.layout.activity_apply );
@@ -73,9 +79,7 @@ public class ApplyActivity extends AppCompatActivity {
             ClipData clipData = ClipData.newPlainText("","");
             View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
             view.startDrag(clipData,builder,view,0);
-            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                mediaPlayer.pause();
-            }
+
             if(view.getId() == run1.getId()){
                 run1.setVisibility(View.INVISIBLE);
             }
@@ -106,7 +110,7 @@ public class ApplyActivity extends AppCompatActivity {
                     if(view.getId() == R.id.img12 && v.getId() == R.id.img1){
                         final GifImageView im = (GifImageView) findViewById(R.id.img1);
                         im.setImageResource(R.drawable.apply_tho);
-                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.yeah);
+                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.cach);
                         mediaPlayer.start();
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img12);
                         im1.setImageResource(R.drawable.anhnull);
@@ -118,7 +122,7 @@ public class ApplyActivity extends AppCompatActivity {
                                     if(mediaPlayer != null && mediaPlayer.isPlaying()){
                                         mediaPlayer.pause();}
 
-                                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.gioi);
+                                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.yeah);
                                         mediaPlayer.start();
 
                                     LinearLayout target = (LinearLayout) findViewById(R.id.imgTarget) ;
@@ -145,7 +149,7 @@ public class ApplyActivity extends AppCompatActivity {
 
                         final GifImageView im = (GifImageView) findViewById(R.id.img2);
                         im.setImageResource(R.drawable.apply_ngua);
-                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.yeah);
+                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.cach);
                         mediaPlayer.start();
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img22);
                         im1.setImageResource(R.drawable.anhnull);
@@ -156,7 +160,7 @@ public class ApplyActivity extends AppCompatActivity {
                                 if(flag == 2){
                                     if(mediaPlayer != null && mediaPlayer.isPlaying()){
                                         mediaPlayer.pause();}
-                                    mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.gioi);
+                                    mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.yeah);
                                     mediaPlayer.start();
                                     LinearLayout target = (LinearLayout) findViewById(R.id.imgTarget) ;
                                     target.setVisibility(View.GONE);
@@ -234,9 +238,6 @@ public class ApplyActivity extends AppCompatActivity {
         if (requestCode == INPUT) {
             if (resultCode == RESULT_OK) {
                 finish();
-                if(mediaPlayer!= null && mediaPlayer.isPlaying()){
-                    mediaPlayer.pause();
-                }
             }
         }
     }

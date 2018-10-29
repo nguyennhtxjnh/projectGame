@@ -60,7 +60,11 @@
             android:name=".DifferentActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".PickSamePictureActivity" />
-        <activity android:name=".CongraActivity"></activity>
+        <activity android:name=".CongraActivity" />
+
+        <service
+            android:name=".MyMusicService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
