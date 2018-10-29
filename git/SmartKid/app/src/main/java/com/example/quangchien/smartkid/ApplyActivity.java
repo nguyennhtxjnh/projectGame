@@ -2,6 +2,7 @@ package com.example.quangchien.smartkid;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,9 +18,10 @@ import android.widget.LinearLayout;
 import pl.droidsonroids.gif.GifImageView;
 
 public class ApplyActivity extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
     private static int INPUT = 1;
     LinearLayout target1;
-    GifImageView run, eat,run1,eat1;
+    GifImageView run, eat,run1,eat1, congra;
     int flag = 0, thutu=0;
     Handler handler = new Handler();
 
@@ -43,10 +45,11 @@ public class ApplyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
+        mediaPlayer = MediaPlayer.create(ApplyActivity.this,R.raw.bong );
+        mediaPlayer.start();
         setContentView(R.layout.activity_apply );
 
-
+        congra = (GifImageView) findViewById(R.id.congra);
         run = (GifImageView) findViewById(R.id.img1);
         run1 = (GifImageView) findViewById(R.id.img12);
         eat = (GifImageView) findViewById(R.id.img2);
@@ -70,6 +73,9 @@ public class ApplyActivity extends AppCompatActivity {
             ClipData clipData = ClipData.newPlainText("","");
             View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
             view.startDrag(clipData,builder,view,0);
+            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
+                mediaPlayer.pause();
+            }
             if(view.getId() == run1.getId()){
                 run1.setVisibility(View.INVISIBLE);
             }
@@ -99,7 +105,9 @@ public class ApplyActivity extends AppCompatActivity {
 
                     if(view.getId() == R.id.img12 && v.getId() == R.id.img1){
                         final GifImageView im = (GifImageView) findViewById(R.id.img1);
-                        im.setImageResource(R.drawable.pikachuchay);
+                        im.setImageResource(R.drawable.apply_tho);
+                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.yeah);
+                        mediaPlayer.start();
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img12);
                         im1.setImageResource(R.drawable.anhnull);
                         handler.postDelayed(new Runnable() {
@@ -107,8 +115,27 @@ public class ApplyActivity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 2){
+                                    if(mediaPlayer != null && mediaPlayer.isPlaying()){
+                                        mediaPlayer.pause();}
 
-                              changeImage();
+                                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.gioi);
+                                        mediaPlayer.start();
+
+                                    LinearLayout target = (LinearLayout) findViewById(R.id.imgTarget) ;
+                                    target.setVisibility(View.GONE);
+                                    congra= (GifImageView) findViewById(R.id.congra);
+                                    congra.setVisibility(View.VISIBLE);
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
+                                                mediaPlayer.pause();
+                                            }
+                                            changeImage();
+                                        }
+                                    },2000);
+
+                                    flag = 0;
 
                                 }
                             }
@@ -117,7 +144,9 @@ public class ApplyActivity extends AppCompatActivity {
                     }else if(view.getId() == R.id.img22 && v.getId() == R.id.img2){
 
                         final GifImageView im = (GifImageView) findViewById(R.id.img2);
-                        im.setImageResource(R.drawable.pikachu);
+                        im.setImageResource(R.drawable.apply_ngua);
+                        mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.yeah);
+                        mediaPlayer.start();
                         final GifImageView im1 = (GifImageView) findViewById(R.id.img22);
                         im1.setImageResource(R.drawable.anhnull);
                         handler.postDelayed(new Runnable() {
@@ -125,12 +154,30 @@ public class ApplyActivity extends AppCompatActivity {
                             public void run() {
                                 flag++;
                                 if(flag == 2){
-                                    changeImage();
+                                    if(mediaPlayer != null && mediaPlayer.isPlaying()){
+                                        mediaPlayer.pause();}
+                                    mediaPlayer = MediaPlayer.create(ApplyActivity.this, R.raw.gioi);
+                                    mediaPlayer.start();
+                                    LinearLayout target = (LinearLayout) findViewById(R.id.imgTarget) ;
+                                    target.setVisibility(View.GONE);
+                                    congra= (GifImageView) findViewById(R.id.congra);
+                                    congra.setVisibility(View.VISIBLE);
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if(mediaPlayer!= null && mediaPlayer.isPlaying()){
+                                                mediaPlayer.pause();
+                                            }
+                                            changeImage();
+                                        }
+                                    },2000);
+
                                     flag = 0;
 
                                 }
                             }
                         },2000);
+
                     }
                     break;
 
@@ -144,6 +191,9 @@ public class ApplyActivity extends AppCompatActivity {
         Intent intent = new Intent(this,Apply2Activity.class);
         startActivityForResult(intent,INPUT);
         finish();
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }
 
 //        try {
 ////            run1.setVisibility(View.VISIBLE);
@@ -164,13 +214,13 @@ public class ApplyActivity extends AppCompatActivity {
             final View v = (View) dragEvent.getLocalState();
             switch (d){
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    ImageView btn11= (ImageView) dragEvent.getLocalState();
-                    btn11.setVisibility(View.INVISIBLE);
-                    break;
+//                    ImageView btn11= (ImageView) dragEvent.getLocalState();
+//                    btn11.setVisibility(View.INVISIBLE);
+//                    break;
                 case DragEvent.ACTION_DRAG_EXITED:
-                    ImageView btn12= (ImageView) dragEvent.getLocalState();
-                    btn12.setVisibility(View.VISIBLE);
-                    break;
+//                    ImageView btn12= (ImageView) dragEvent.getLocalState();
+//                    btn12.setVisibility(View.VISIBLE);
+//                    break;
                 case DragEvent.ACTION_DROP:
                     run1.setVisibility(View.VISIBLE);
                     eat1.setVisibility(View.VISIBLE);
@@ -184,6 +234,9 @@ public class ApplyActivity extends AppCompatActivity {
         if (requestCode == INPUT) {
             if (resultCode == RESULT_OK) {
                 finish();
+                if(mediaPlayer!= null && mediaPlayer.isPlaying()){
+                    mediaPlayer.pause();
+                }
             }
         }
     }

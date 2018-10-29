@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".ChosseStyle"
-    android:background="@drawable/chossekindofgame">
+    tools:context=".Chosse"
+    android:background="@drawable/nenmain2">
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -20,11 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/homebutton"
-                android:onClick="ClickToFinish"/>
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:src="@drawable/homebutton"-->
+                <!--android:onClick="ClickToFinish"/>-->
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/rungcatoon"
+    android:background="@drawable/apply2_nen"
     tools:context=".ApplyActivity"
     android:id="@+id/apply"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,12 +23,13 @@
         android:orientation="horizontal"
         android:id="@+id/imgTarget"
         android:padding="5dp"
+        android:visibility="visible"
         >
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/img12"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/pikachuchay"
+            android:src="@drawable/apply_tho"
             android:layout_weight="1"
             android:layout_marginBottom="5dp"
             />
@@ -36,7 +38,7 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/pikachu"
+            android:src="@drawable/apply_ngua"
             android:layout_marginBottom="5dp"
             />
     </LinearLayout>
@@ -45,7 +47,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="visible"
+        >
 
         <LinearLayout
             android:id="@+id/target1"
@@ -59,7 +63,7 @@
                 android:id="@+id/img1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/pikachurun2" />
+                android:src="@drawable/apply_tho1" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,12 +78,18 @@
                 android:id="@+id/img2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/pikachuan2" />
+                android:src="@drawable/apply_ngua1" />
         </LinearLayout>
 
 
 
     </LinearLayout>
 
-
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/congrats"
+        android:id="@+id/congra"
+        android:visibility="gone"
+        />
 </LinearLayout>

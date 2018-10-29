@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChosseStyle"
+            android:name=".Chosse"
             android:screenOrientation="landscape" />
         <activity
             android:name=".thinkingActivity"
@@ -59,7 +59,8 @@
         <activity
             android:name=".DifferentActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".PickSamePictureActivity"></activity>
+        <activity android:name=".PickSamePictureActivity" />
+        <activity android:name=".CongraActivity"></activity>
     </application>
 
 </manifest>
