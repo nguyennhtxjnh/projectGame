@@ -24,6 +24,14 @@ public class ObserverActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Intent intent = new Intent(ObserverActivity.this,MyMusicService.class);
+        if(intent != null){
+            stopService(intent);
+        }
+    }
 
     public void clickToArrange(View view) {
         Intent intent = new Intent(this,ArrangeActivity.class);

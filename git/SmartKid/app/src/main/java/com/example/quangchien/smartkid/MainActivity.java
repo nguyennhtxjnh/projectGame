@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,12 +16,13 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.activity_chosse_style);
-        Intent intent = new Intent(MainActivity.this,MyMusicService.class);
+        intent = new Intent(MainActivity.this,MyMusicService.class);
         startService(intent);
 
     }
 
-//    public void ClickToFinish(View view) {
+
+    //    public void ClickToFinish(View view) {
 //        finish();
 //    }
 

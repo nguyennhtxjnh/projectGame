@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/apply_cho"
+                    android:src="@drawable/ap_gau"
                     android:layout_marginBottom="5dp"
                     />
             </LinearLayout>
@@ -76,7 +76,7 @@
                     android:id="@+id/img3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/gt"
+                    android:src="@drawable/ap_meo"
                     android:layout_weight="1"
                     android:layout_marginBottom="5dp"
 
@@ -92,7 +92,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/apply_chimcanhcut"
+                    android:src="@drawable/ap_ca"
                     android:layout_marginBottom="5dp"
                     />
             </LinearLayout>
@@ -122,7 +122,7 @@
                     android:id="@+id/img44"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/apply_chimcanhcut1" />
+                    android:src="@drawable/ap_ca1" />
             </LinearLayout>
 
             <LinearLayout
@@ -137,7 +137,7 @@
                     android:id="@+id/img22"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/apply_cho1" />
+                    android:src="@drawable/ap_gau1" />
             </LinearLayout>
 
             <LinearLayout
@@ -151,7 +151,7 @@
                     android:id="@+id/img33"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/gautruc1" />
+                    android:src="@drawable/ap_meo1" />
             </LinearLayout>
 
             <LinearLayout

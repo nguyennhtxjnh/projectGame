@@ -25,7 +25,7 @@ public class DifferentActivity extends AppCompatActivity {
     private static int INPUT = 1;
     int thutu = 0;
     int [] img1 = {
-            R.drawable.sutu,R.drawable.apply_chuot, R.drawable.khi, R.drawable.diff_voi, R.drawable.apply_chimcanhcut,
+            R.drawable.sutu,R.drawable.ap_gau, R.drawable.khi, R.drawable.diff_voi, R.drawable.apply_chimcanhcut,
             R.drawable.apply_meo, R.drawable.apply_cho,R.drawable.diff_khicon,R.drawable.diff_vet,R.drawable.diff_thocon,
             R.drawable.diff_khicon,R.drawable.diff_heo,R.drawable.apply_huucaoco,R.drawable.apply_nai,R.drawable.apply_ngua,
             R.drawable.diff_chocon

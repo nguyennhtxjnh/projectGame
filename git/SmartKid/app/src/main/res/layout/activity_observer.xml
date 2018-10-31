@@ -33,20 +33,22 @@
 
                 <pl.droidsonroids.gif.GifImageView
                     android:id="@+id/img1"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="clickToArrange"
-                    android:src="@drawable/chuottui" />
+                    android:src="@drawable/prac_gau" />
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="ghép ảnh"
+                    android:text="Ghép hình"
+                    android:fontFamily="@font/vegan"
                     android:onClick="clickToArrange"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#ff0006"
                     android:textSize="20dp" />
             </LinearLayout>
 
@@ -101,8 +103,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="trò chơi khác"
-                android:textColor="@color/colorPrimary"
+                android:text="Trò khác"
+                android:fontFamily="@font/vegan"
+                android:textColor="#ff0006"
                 android:textSize="20dp" />
         </LinearLayout>
 
@@ -132,7 +135,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="clickToApply"
-                    android:src="@drawable/sutu" />
+                    android:src="@drawable/ap_cao" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -140,8 +143,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:onClick="clickToApply"
-                    android:text="tìm con vật"
-                    android:textColor="@color/colorPrimary"
+                    android:text="Tìm bóng "
+                    android:fontFamily="@font/vegan"
+                    android:textColor="#ff0006"
                     android:textSize="20dp" />
             </LinearLayout>
 

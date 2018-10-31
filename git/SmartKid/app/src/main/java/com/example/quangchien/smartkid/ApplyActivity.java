@@ -39,7 +39,14 @@ public class ApplyActivity extends AppCompatActivity {
     private Integer[] img4 = {R.drawable.pikachu,R.drawable.khi,R.drawable.sutu
     };
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Intent intent = new Intent(ApplyActivity.this,MyMusicService.class);
+        if(intent == null){
+            startService(intent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,6 @@ public class ApplyActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Intent intent = new Intent(ApplyActivity.this,MyMusicService.class);
         if(intent != null){
-            Toast.makeText(this,"huhu", Toast.LENGTH_SHORT).show();
             stopService(intent);
         }
         mediaPlayer = MediaPlayer.create(ApplyActivity.this,R.raw.bong );
@@ -192,12 +198,13 @@ public class ApplyActivity extends AppCompatActivity {
 
     public void changeImage(){
         //thutu++;
-        Intent intent = new Intent(this,Apply2Activity.class);
-        startActivityForResult(intent,INPUT);
-        finish();
         if(mediaPlayer.isPlaying()){
             mediaPlayer.pause();
         }
+        Intent intent = new Intent(this,Apply2Activity.class);
+        startActivityForResult(intent,INPUT);
+        finish();
+
 
 //        try {
 ////            run1.setVisibility(View.VISIBLE);

@@ -24,30 +24,30 @@ public class Apply2Activity extends AppCompatActivity {
     int flag = 0, thutu=0;
     Handler handler = new Handler();
 
-    private Integer[] img1 = {R.drawable.apply_chimcanhcut1,
-            R.drawable.bo1,R.drawable.chuottui1
+    private Integer[] img1 = {R.drawable.ap_ca1,
+            R.drawable.bo1,R.drawable.ap_cao1
     };
-    private Integer[] img2 = {R.drawable.apply_cho1,R.drawable.khi1,R.drawable.sutu1
-    };
-
-    private Integer[] img3 = {R.drawable.gautruc1,
-            R.drawable.apply_chuot1,R.drawable.apply_meo1
-    };
-    private Integer[] img4 = {R.drawable.apply_huucaoco1,R.drawable.apply_nai1,R.drawable.apply_tho1
+    private Integer[] img2 = {R.drawable.ap_gau1,R.drawable.ap_cavoi1,R.drawable.ap_cho1
     };
 
-    private Integer[] img5 = {R.drawable.apply_chimcanhcut,
-            R.drawable.bo,R.drawable.chuottui
+    private Integer[] img3 = {R.drawable.ap_meo1,
+            R.drawable.ap_voi1,R.drawable.ap_vet1
+    };
+    private Integer[] img4 = {R.drawable.apply_huucaoco1,R.drawable.ap_gautruc1,R.drawable.apply_tho1
     };
 
-    private Integer[] img6 = {R.drawable.apply_cho,R.drawable.khi,R.drawable.sutu
+    private Integer[] img5 = {R.drawable.ap_ca,
+            R.drawable.bo,R.drawable.ap_cao
     };
 
-    private Integer[] img7 = {R.drawable.gt,
-            R.drawable.apply_chuot,R.drawable.apply_meo
+    private Integer[] img6 = {R.drawable.ap_gau,R.drawable.ap_cavoi,R.drawable.ap_cho
     };
 
-    private Integer[] img8 = {R.drawable.apply_huucaoco,R.drawable.apply_nai,R.drawable.apply_tho
+    private Integer[] img7 = {R.drawable.ap_meo,
+            R.drawable.ap_voi,R.drawable.ap_vet
+    };
+
+    private Integer[] img8 = {R.drawable.apply_huucaoco,R.drawable.ap_gautruc,R.drawable.apply_tho
     };
 
 
@@ -94,6 +94,9 @@ public class Apply2Activity extends AppCompatActivity {
             ClipData clipData = ClipData.newPlainText("","");
             View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
             view.startDrag(clipData,builder,view,0);
+            if(mediaPlayerCach.isPlaying()){
+                mediaPlayerCach.stop();
+            }
 
             if(view.getId() == anh1.getId()){
                 anh1.setVisibility(View.INVISIBLE);
@@ -320,6 +323,13 @@ public class Apply2Activity extends AppCompatActivity {
 
             }  return true;}
     };
+    protected void onStop() {
+        super.onStop();
+        Intent intent = new Intent(Apply2Activity.this,MyMusicService.class);
+        if(intent == null){
+            startService(intent);
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
